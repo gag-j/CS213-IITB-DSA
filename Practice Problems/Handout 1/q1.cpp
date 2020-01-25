@@ -18,7 +18,7 @@ bool is_square(long int n){
 	return 0;
 }
 
-void list_squares_algo1(long int a, long int b){
+void list_squares_algo2(long int a, long int b){
 	int cnt = 0;
 	for (long int i=a; i<=b;i++){
 		if(is_square(i)) {
@@ -29,7 +29,7 @@ void list_squares_algo1(long int a, long int b){
 	cout<<"No. of perfect squares  = " << cnt<<endl;
 }
 
-void list_squares_algo2(long int a, long int b){
+void list_squares_algo1(long int a, long int b){
 	int cnt = 0;
 	bool found_first = false;
 	int root;
@@ -61,12 +61,12 @@ int main(){
 	std::chrono::time_point<std::chrono::system_clock> start_algo1, start_algo2, end_algo2;
 
 	start_algo1 = std::chrono::system_clock::now();
-	list_squares_algo2(a,b);
+	list_squares_algo1(a,b);
 	start_algo2 = std::chrono::system_clock::now();
 	std::chrono::duration<double> algo1_time = start_algo2 - start_algo1;
 	cout<<"algo1_time "<<algo1_time.count()<<endl<<endl;
 
-	list_squares_algo1(a,b);
+	list_squares_algo2(a,b);
 	end_algo2 = std::chrono::system_clock::now();
 	std::chrono::duration<double> algo2_time = end_algo2 - start_algo2;
 	cout<<"algo2_time "<<algo2_time.count()<<endl<<endl;
